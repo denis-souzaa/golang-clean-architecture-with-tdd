@@ -20,7 +20,7 @@ func (p *ProcessTransaction) Execute(input TransactionDtoInput) (TransactionDtoO
 	invalidTransaction := transaction.IsValid()
 
 	if invalidTransaction != nil {
-		p.rejectTransaction(transaction, invalidTransaction)
+		return p.rejectTransaction(transaction, invalidTransaction)
 	}
 
 	return p.approveTransaction(transaction)
